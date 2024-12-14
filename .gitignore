@@ -1,3 +1,12 @@
+# App specific
+*config.py
+credentials.json
+test.py
+.DS_Store
+tmp/
+.vscode/
+db/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
