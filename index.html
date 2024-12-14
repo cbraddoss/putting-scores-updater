@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Putting League</title>
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: 'Nunito';
+        }
+        .video-frame {
+            display: block;
+            width: 1280px;
+            max-width: 1280px;
+            height: 720px;
+            max-height: 720px;
+            background-color: rgb(58, 58, 58);
+            overflow: hidden;
+            background-image: url("assets/images/website-bg-2.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .video-info {
+            width: 100%;
+            height: 480px;
+            display: block;
+            /* background-color: rgb(130, 130, 130); */
+            text-align: center;
+            border-radius: 10px;
+            margin: 5px;
+            color: white;
+        }
+        .division {
+            height: 225px;
+            width: 256px;
+            /* margin: 0 5px 5px 5px; */
+            /* border-right: 3px solid rgb(58, 58, 58);
+            border-left: 3px solid rgb(58, 58, 58); */
+            background-color: aqua;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 0.65em;
+            display: block;
+            float: left;
+            overflow: hidden;
+        }
+        table>thead>tr>th {
+            border-radius: 10px;
+        }
+
+        .division.pro .table-striped>tbody>tr:nth-of-type(odd)>* {
+            background-color: rgb(179, 255, 190);
+        }
+        .division.pro, .division.pro table>thead>tr>th {
+            background-color: rgb(0, 207, 31);
+        }
+
+        .division.adv .table-striped>tbody>tr:nth-of-type(odd)>* {
+            background-color: rgb(149, 204, 255);
+        }
+        .division.adv, .division.adv table>thead>tr>th {
+            background-color: rgb(31, 145, 250);
+        }
+
+        .division.rec .table-striped>tbody>tr:nth-of-type(odd)>* {
+            background-color: rgb(255, 249, 180);
+        }
+        .division.rec, .division.rec table>thead>tr>th {
+            background-color: rgb(255, 234, 0);
+        }
+
+        .division.fpo .table-striped>tbody>tr:nth-of-type(odd)>* {
+            background-color: rgb(240, 162, 254);
+        }
+        .division.fpo, .division.fpo table>thead>tr>th {
+            background-color: rgb(217, 0, 255);
+        }
+        
+        .division.fun .table-striped>tbody>tr:nth-of-type(odd)>* {
+            background-color: rgb(255, 170, 207);
+        }
+        .division.fun, .division.fun table>thead>tr>th {
+            background-color: rgb(255, 0, 89);
+        }
+
+        .table>:not(caption)>*>* {
+            padding: 1px 4px;
+        }
+        
+    </style>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script>
+        $.getJSON("db/pro_scores.json", function(data) {
+            // Do something with the data
+            console.log(data);
+        });
+    </script>
+</head>
+<body class="antialiased">
+    <div class="video-frame">
+        <div class="video-info">
+            <h2 id="clickme" class="title">WAFDA <span>2024 Putting League</span> - <span>Live Stream</span></h2>
+        </div>
+        <div class="">
+            <div class="scores">
+                <div class="division pro">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Pro - Player</th>
+                            <th scope="col">Score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Brad Doss</td>
+                            <td>38</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Tim Broadaway</td>
+                            <td>37</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>14</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="division adv">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ADV - Player</th>
+                            <th scope="col">Score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Eric Savage</td>
+                            <td>38</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>37</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Mark</td>
+                            <td>15</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Jacob</td>
+                            <td>14</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">5</th>
+                            <td>Larry</td>
+                            <td>13</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">6</th>
+                            <td>Mark</td>
+                            <td>15</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">7</th>
+                            <td>Jacob</td>
+                            <td>14</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">8</th>
+                            <td>Larry</td>
+                            <td>13</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">9</th>
+                            <td>Mark</td>
+                            <td>15</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">10</th>
+                            <td>Jacob</td>
+                            <td>14</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">11</th>
+                            <td>Jacob</td>
+                            <td>14</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="division rec">
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">REC - Player</th>
+                            <th scope="col">Score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Daila Doss</td>
+                            <td>38</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>37</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>14</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="division fpo">
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">FPO - Player</th>
+                            <th scope="col">Score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>38</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>37</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>14</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="division fun">
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">FUN - Player</th>
+                            <th scope="col">Score</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>38</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>37</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>14</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
