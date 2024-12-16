@@ -1,8 +1,6 @@
 import gspread
 import config
-
-from datetime import datetime
-from tinydb import TinyDB, Query
+import json
 
 # Connect to google sheet and/or tab
 def sheet_connect(sheet, tab = ''):
@@ -20,57 +18,34 @@ def score_update(division = ''):
     if division == '':
         return False
 
-    # balance_log = general.sheet_connect('putting_league', config.sheet_tabs['putting_league'])
     sheet = sheet_connect('putting_league', config.sheet_tabs['current_week'])
-
-    score_db = TinyDB(f"{config.db_path}/{division}_scores.json")
-    score_db.truncate()
     
     cells = config.division_cells[f"{division}"]
-    print(cells)
+    
     scores_from_sheet = sheet.batch_get([cells])
     scores_from_sheet = scores_from_sheet[0]
-    print(scores_from_sheet)
-    details = {}
+    
+    scores_db = {}
+    scores_html = ''
 
     for items in scores_from_sheet:
-        # print(items)
+        print(items)
         try:
-            position = items[0]
+            scores_html += f"<tr><td scope='row'>{items[0]}</td><th class='name'>{items[1]}</th><td class='score'>{items[2]}</td></tr>"
         except IndexError:
-            position = ''
-        
-        try:
-            name = items[1]
-        except IndexError:
-            name = ''
+            scores_html = ''
 
-        try:
-            score = items[2]
-        except IndexError:
-            score = ''
-        
-        try:
-            details[items[0]] = {
-                'position':position,
-                'name':name,
-                'score':score,
-            }
-        except IndexError:
-            error = ''
+    scores_db = {
+        'scores_html': scores_html,
+    }
 
-        try:
-            score_db.insert(details)
-            print('Successful db write')
-            
-        except ValueError as e:
-            print(f"[DB Error] pro_scores.insert(): {e}")
-        
-        
-    score_db.close()
+    log_json = json.dumps(scores_db)
+
+    log_file = open(f"{config.db_path}/{division}_scores.json", "w")
+    log_file.write(f"{log_json}\n")
+    log_file.close()
     
     return True
-
 
 for div in config.divisions:
     print(score_update(div))
